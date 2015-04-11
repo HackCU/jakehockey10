@@ -48,18 +48,6 @@ mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
 
-
-/**
- * ContextIO client
- */
-var ContextIO = require('contextio');
-var ctxioClient = new ContextIO.Client({
-  key: "ulv1br7b",
-  secret: "hhAsl0ExKGSh1UKW"
-});
-
-
-
 /**
  * Express configuration.
  */
@@ -68,7 +56,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(compress());
 app.use(connectAssets({
-  paths: [path.join(__dirname, 'public/css'), path.join(__dirname, 'public/js')]
+  paths: [
+    path.join(__dirname, 'public/css'),
+    path.join(__dirname, 'public/js'),
+    path.join(__dirname, 'public/images'),
+    path.join(__dirname, 'public/fonts')
+  ]
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -153,6 +146,7 @@ app.get('/api/paypal', apiController.getPayPal);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
+app.get('/api/contextio', apiController.getContextIO);
 
 /**
  * OAuth authentication routes. (Sign in)

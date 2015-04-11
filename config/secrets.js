@@ -72,8 +72,8 @@ module.exports = {
   },
 
   twitter: {
-    consumerKey: process.env.TWITTER_KEY || '6NNBDyJ2TavL407A3lWxPFKBI',
-    consumerSecret: process.env.TWITTER_SECRET  || 'ZHaYyK3DQCqv49Z9ofsYdqiUgeoICyh6uoBgFfu7OeYC7wTQKa',
+    consumerKey: process.env.TWITTER_KEY || '9sA9ZWR12txG2xeC8Mey7PHf5',
+    consumerSecret: process.env.TWITTER_SECRET  || '18fO7kMK3PhgxZJxBk2kCSm9fQmDQJwFMbIE3dvtxaWkRKK17V',
     callbackURL: '/auth/twitter/callback',
     passReqToCallback: true
   },
@@ -144,5 +144,10 @@ module.exports = {
 
   lob: {
     apiKey: process.env.LOB_KEY || 'test_814e892b199d65ef6dbb3e4ad24689559ca'
+  },
+
+  contextio: {
+    key: process.env.CONTEXTIO_KEY || 'ulv1br7b',
+    secret: process.env.CONTEXTIO_SECRET || 'hhAsl0ExKGSh1UKW'
   }
 };
