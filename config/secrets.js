@@ -72,6 +72,7 @@ module.exports = {
   },
 
   twitter: {
+    // These are my credentials.
     consumerKey: process.env.TWITTER_KEY || '9sA9ZWR12txG2xeC8Mey7PHf5',
     consumerSecret: process.env.TWITTER_SECRET  || '18fO7kMK3PhgxZJxBk2kCSm9fQmDQJwFMbIE3dvtxaWkRKK17V',
     callbackURL: '/auth/twitter/callback',
