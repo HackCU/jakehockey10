@@ -28,6 +28,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var contextioController = require('./controllers/contextio');
 
 /**
  * API keys and Passport configuration.
@@ -146,7 +147,12 @@ app.get('/api/paypal', apiController.getPayPal);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
-app.get('/api/contextio', apiController.getContextIO);
+
+/**
+ * context.io routes
+ */
+app.get('/contextio/accounts', contextioController.getContextIO);
+app.get('/contextio/accounts/:id', contextioController.getContextIOAccountDetail);
 
 /**
  * OAuth authentication routes. (Sign in)

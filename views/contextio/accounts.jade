@@ -1,0 +1,30 @@
+// Created by jake on 4/10/15.
+
+extends ../layout
+
+block content
+  .page-header
+    h2
+      i.fa.fa-envelope-o
+      | context.io API
+  .btn-group.btn-group-justified
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Else
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Even Elser
+
+  each account in accounts
+    .panel.panel-info
+      .panel-heading
+        a(href='/contextio/accounts/' + account.id)
+          h3.panel-title= account.first_name + ' ' + account.last_name
+      .panel-body
+        each email in account.email_addresses
+          = email + ' '
+
+

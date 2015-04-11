@@ -19,7 +19,8 @@ var paypal = require('paypal-rest-sdk');
 var lob = require('lob')(secrets.lob.apiKey);
 var ig = require('instagram-node').instagram();
 var Y = require('yui/yql');
-var ContextIO = require('contextio');
+var contextio = require('contextio');
+var contextioClient = new contextio.Client({key: secrets.contextio.key, secret: secrets.contextio.secret});
 var _ = require('lodash');
 
 /**
@@ -692,22 +693,4 @@ exports.getLob = function(req, res, next) {
       routes: routes.data[0].routes
     });
   });
-};
-
-/**
- * GET /api/contextio
- * ContextIO API example.
- */
-exports.getContextIO = function(req, res, next) {
-  var contextioClient = new ContextIO.Client({
-    key: secrets.contextio.key,
-    secret: secrets.contextio.secret
-  });
-  contextioClient.accounts().get({limit: 15}, function (err, response) {
-    if (err) throw err;
-    console.log(response.body);
-    res.render('api/contextio', {
-      body: response.body
-    });
-  })
 };

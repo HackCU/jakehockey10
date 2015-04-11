@@ -1,0 +1,30 @@
+// Created by jake on 4/11/15.
+
+extends ../layout
+
+block content
+  .page-header
+    h2
+      i.fa.fa-envelope-o
+      | context.io API
+  .btn-group.btn-group-justified
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Else
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Even Elser
+
+  ul.media-list
+    each contact in account_contacts
+      li.media
+        a.pull-left(href='#')
+          - var image = contact.thumbnail;
+          img.media-object(src='#{image}', style='width: 64px; height: 64px;')
+        .media-body
+          strong.media-heading #{contact.name}
+          span.text-muted  #{contact.email}
+          p You've sent #{contact.sent_from_account_count} emails to this person.
