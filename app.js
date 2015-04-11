@@ -48,6 +48,18 @@ mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
 
+
+/**
+ * ContextIO client
+ */
+var ContextIO = require('contextio');
+var ctxioClient = new ContextIO.Client({
+  key: "ulv1br7b",
+  secret: "hhAsl0ExKGSh1UKW"
+});
+
+
+
 /**
  * Express configuration.
  */
