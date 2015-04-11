@@ -1,0 +1,37 @@
+// Created by jake on 4/11/15.
+
+extends ../layout
+block content
+  .page-header
+    h2
+      i.fa.fa-envelope-o.
+      | Messages
+  .row#messages_list
+    input.search.form-control
+    .btn-group.btn-group-justified
+      .btn.btn-primary.sort(data-sort='subject') Subject&nbsp;
+        i.fa.fa-chevron-up
+      .btn.btn-primary.sort(data-sort='date') Date&nbsp;
+        i.fa.fa-chevron-up
+      .btn.btn-primary.sort(data-sort='from') Sender&nbsp;
+        i.fa.fa-chevron-up
+      .btn.btn-primary.sort(data-sort='to') Total recipients&nbsp;
+        i.fa.fa-chevron-up
+    .col-md-offset-2.col-sm-offset-2.col-xs-offset-2.col-md-8.col-sm-8.col-xs-8
+      ul.media-list.list(style='margin: 10px;')
+        each message in messages
+          a(href='/contextio/accounts/' + id + '/messages/' + message.message_id, style='color: #000; text-decoration: none')
+            .panel.panel-default(style='margin: 5px; padding: 5px;')
+              li.media
+                .media-left
+                  - var from_email = message.addresses.from.email;
+                  - var from_thumbnail = message.person_info[from_email].thumbnail;//_.find(message.person_info, {from_email}).thumbnail;
+                  img.media-object(src='#{from_thumbnail}', style='width: 64px; height: 64px;')
+                .media-body
+                  strong.media-heading.subject #{message.subject}
+                  br
+                  .from From: #{message.addresses.from.name}
+                  br
+                  .to Sent to: #{message.addresses.to.length} people
+                .media-right(style='width: 64px !important;')
+                  .text-muted.date(style='font-size: 10px')  #{message.date}

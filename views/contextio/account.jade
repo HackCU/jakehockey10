@@ -21,7 +21,7 @@ block content
   ul.media-list
     each contact in account_contacts
       li.media
-        a.pull-left(href='#')
+        a.pull-left(href='/contextio/accounts/' + id + '/contact?email=' + contact.email)
           - var image = contact.thumbnail;
           img.media-object(src='#{image}', style='width: 64px; height: 64px;')
         .media-body

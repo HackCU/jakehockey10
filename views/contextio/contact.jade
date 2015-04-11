@@ -1,0 +1,42 @@
+// Created by jake on 4/11/15.
+
+extends ../layout
+
+block content
+  .page-header
+    h2
+      i.fa.fa-envelope-o
+      | context.io API
+  .btn-group.btn-group-justified
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Else
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Even Elser
+  //each thread in threads
+  //  ul.media-list
+  //    each person in thread.person_info
+  //      li.media
+  //        .media-left
+  //          a(href='#')
+  //            img.media-object(src=person.thumbnail)
+  //        .media-body
+  each thread in threads
+    .col-md-3.col-sm-3.col-xs-3
+      each person in thread.person_info
+        img(src=person.thumbnail, style='width: 64px; height: 64px;')
+    .col-md-9.col-sm-9.col-xs-9
+      ul.media-list
+        each message in thread.messages
+          li.media
+            .media-left
+              a(href='#')
+                img.media-object(src=thread.person_info[message.addresses.from.email].thumbnail, style='width: 64px; height: 64px;')
+            .media-body
+              h4= message.addresses.from.name
+                span.text-muted  #{message.addresses.from.email}
+    pre= JSON.stringify(thread, null, 2)

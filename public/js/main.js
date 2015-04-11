@@ -1,5 +1,9 @@
-$(document).ready(function() {
+//$(document).ready(function() {
+//$('#messages_search').livefilter({selector: 'ul a'});
+//});
 
-  // Place JavaScript code here...
+var options = {
+  valueNames: ['subject', 'date', 'from', 'to']
+};
 
-});
+var messagesList = new List('messages_list', options);

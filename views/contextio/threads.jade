@@ -1,0 +1,31 @@
+// Created by jake on 4/11/15.
+
+extends ../layout
+block content
+  .page-header
+    h2
+      i.fa.fa-envelope-o
+      | context.io API
+  .btn-group.btn-group-justified
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Else
+    a.btn.btn-primary(href='#')
+      i.fa.fa-envelope-o
+      | Something Even Elser
+  .row
+    .col-md-3.col-sm-3.col-xs-3
+      ul.list-group
+        each thread in threads
+          li.list-group-item
+            span.badge= thread.messages.length
+            - var names = _.pluck(thread.addresses, 'name');
+            - console.log(names);
+            span= names
+
+        pre= JSON.stringify(thread, null, 2)
+        //each message in thread.messages
+        //  pre= JSON.stringify(message, null, 2)

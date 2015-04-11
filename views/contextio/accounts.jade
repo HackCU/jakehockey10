@@ -19,6 +19,7 @@ block content
       | Something Even Elser
 
   each account in accounts
+    pre= JSON.stringify(account, null, 2)
     .panel.panel-info
       .panel-heading
         a(href='/contextio/accounts/' + account.id)

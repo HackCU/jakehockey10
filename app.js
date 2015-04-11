@@ -40,6 +40,7 @@ var passportConf = require('./config/passport');
  * Create Express server.
  */
 var app = express();
+app.locals._ = require('lodash');
 
 /**
  * Connect to MongoDB.
@@ -153,6 +154,11 @@ app.get('/api/lob', apiController.getLob);
  */
 app.get('/contextio/accounts', contextioController.getContextIO);
 app.get('/contextio/accounts/:id', contextioController.getContextIOAccountDetail);
+//app.get('/contextio/accounts/:id/contact/:email', contextioController.getContextIOContactInfo);
+app.get('/contextio/accounts/:id/contact', contextioController.getContextIOContactThreads);
+app.get('/contextio/accounts/:id/messages', contextioController.getContextIOMessages);
+app.get('/contextio/accounts/:id/messages/:message', contextioController.getContextIOMessage);
+app.get('/contextio/accounts/:id/threads', contextioController.getContextIOThreads);
 
 /**
  * OAuth authentication routes. (Sign in)

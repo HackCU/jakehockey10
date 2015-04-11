@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='email-city')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -10,7 +10,7 @@ html
   body
     include partials/header
 
-    .container
+    .container(ng-controller='TestCtrl')
       include partials/flash
       block content
 
